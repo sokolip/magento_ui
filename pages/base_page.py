@@ -20,6 +20,8 @@ class BasePage:
     def find_all(self, locator: tuple):
         return self.driver.find_elements(*locator)
 
+    def close_page(self):
+        self.driver.quit()
 
 
 
