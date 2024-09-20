@@ -31,24 +31,19 @@ class CreateAccount(BasePage):
         confirm_password_field.send_keys(password)
         scroll = ActionChains(self.driver)
         scroll.scroll_to_element(confirm_button)
-        # WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(confirm_button))
         confirm_button.click()
-        # wait = WebDriverWait(self.driver, 10)
-        # wait.until(EC.text_to_be_present_in_element(title_locator, 'My Account'))
 
     def check_that_confirm_text_is_presented(self, text):
         wait = WebDriverWait(self.driver, 10)
         wait.until(EC.text_to_be_present_in_element(title_locator, 'My Account'))
         confirm_text_locator = ("xpath", "//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")
         confirm_text = self.find(confirm_text_locator).text
-        # print(confirm_text)
         assert confirm_text == text
 
     def check_email_in_my_account(self, email):
         email_locator = (By.CSS_SELECTOR, '.box-content p')
         account_email_text = self.find(email_locator).text
         account_email = account_email_text.split("\n")[1]
-        # print(f'почта {account_email}')
         assert account_email == email
 
     def check_email_validation(self):

@@ -10,12 +10,11 @@ confirm_text = 'Thank you for registering with Main Website Store.'
 incorrect_email = '12345qwermail.com'
 
 existing_email = fake.email()
-# 'kykyreky@ya.ru'
 
 
 def test_create_account_with_correct_data(create_account):
     create_account.open_page()
-    create_account.create_account(
+    create_account.create_new_account(
         first_name=first_name, last_name=last_name, email=email, password=password
     )
     create_account.check_that_confirm_text_is_presented(text=confirm_text)

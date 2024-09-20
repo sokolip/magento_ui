@@ -22,6 +22,3 @@ class BasePage:
 
     def close_page(self):
         self.driver.quit()
-
-
-
