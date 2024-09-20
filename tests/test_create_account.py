@@ -1,5 +1,3 @@
-import pytest
-from pages.create_account import CreateAccount
 from faker import Faker
 
 
@@ -42,5 +40,3 @@ def test_create_account_with_existing_user_email(create_account):
         first_name=first_name, last_name=last_name, email=existing_email, password=password
     )
     create_account.check_validation_existing_email()
-
-
